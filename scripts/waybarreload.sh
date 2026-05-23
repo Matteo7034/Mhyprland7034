@@ -1,3 +1,3 @@
 #!/bin/bash
 killall waybar
-waybar -c ./dotfiles/waybar/config.jsonc -s ./dotfiles/waybar/style.css &
+waybar -c ./Mhyprland7034/waybar/config.jsonc -s ./Mhyprland7034/waybar/style.css &
