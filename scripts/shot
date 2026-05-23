@@ -1,0 +1,4 @@
+#!/bin/bash
+hyprshade on vibrance
+grim -g "$(slurp)" -t png - | wl-copy --type image/png
+hyprshade on blue-light-filter
