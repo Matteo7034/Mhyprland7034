@@ -52,13 +52,22 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("sleep 1")
     hl.exec_cmd("/usr/libexec/xdg-desktop-portal-hyprland &")
     hl.exec_cmd("sleep 1 && /usr/libexec/xdg-desktop-portal &")
+    hl.exec_cmd("sleep 1")
 
     -- pipewire
     hl.exec_cmd("pipewire & wireplumber & pipewire-pulse")
     -- walpaper
-    hl.exec_cmd("hyprpaper -c ~/.config/hypr/hyprpaper.conf")
+    --hl.exec_cmd("hyprpaper -c ~/.config/hypr/hyprpaper.conf")
+    
+    hl.exec_cmd("sleep 1")
+    hl.exec_cmd("~/linux-wallpaperengine/build/output/linux-wallpaperengine --scaling fill --screen-root DP-2 --bg 3534752978  ")
+
     -- waybar
     hl.exec_cmd("sleep 2 && waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.css")
+    hl.exec_cmd("nm-applet --indicator &")
+hl.exec_cmd("blueman-applet &")
+
+    
  end)
 
 
@@ -99,7 +108,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.config({
     general = {
         gaps_in  = 5,
-        gaps_out = 5,
+        gaps_out = 15,
 
         border_size = 3,
 
@@ -122,8 +131,8 @@ hl.config({
         rounding_power = 5,
 
         -- Change transparency of focused and unfocused windows
-        active_opacity   = 0.9,
-        inactive_opacity = 0.8,
+        active_opacity   = 0.85,
+        inactive_opacity = 0.6,
 
         shadow = {
             enabled      = true,
@@ -134,13 +143,13 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 20,
+            size      = 4,
             passes    = 4,
             new_optimizations = true,
             ignore_opacity = true,
             noise = 0.05,
-            contrast = 0.90,
-            brightness = 1.30,
+            contrast = 0.60,
+            brightness = 1.10,
             vibrancy  = 0.1696,
         },
     },

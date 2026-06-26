@@ -6,8 +6,8 @@
 }
 
 window#waybar {
-  background: rgba(30, 30, 46, 0.75);
-  border-bottom: 1px solid #3b4252;
+  background: rgba(30, 30, 46, 0.05);
+  
   border-radius: 10px;
 }
 
@@ -30,7 +30,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: #5e81ac;
+  background: rgba(30,30,46,0.85);
   color: #ffffff;
   font-weight: bold;
 }
@@ -48,7 +48,7 @@ window#waybar {
 #tray {
   padding: 4px 4px;
   margin:  2px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(30, 30, 46, 0.75);
   border-radius: 6px;
 }
 #clock:hover,
