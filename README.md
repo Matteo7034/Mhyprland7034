@@ -1,7 +1,7 @@
 # Hyprland Setup – Matteo
 
-## Screenshot
-![Screen](assets/screen3.jpeg)
+## Anteprima
+![Gif](assets/output.gif)
 Configurazione personale di Hyprland ottimizzata per performance, minimalismo e workflow da sviluppatore.
 
 ## Caratteristiche principali
@@ -21,11 +21,17 @@ Configurazione personale di Hyprland ottimizzata per performance, minimalismo e 
 - polkit-gnome
 - wofi
 - thunar
-- alacritty / foot 
+- foot 
 - nm-applet
 - xwaylandvideobridge
 - firefox
 - hyprshade
+- linuxwallpaperengine
+- nm-applet
+- blueman-applet
+
+> **💡 Consiglio:**  
+> [Segui la guida ufficiale di Linux Wallpaper Engine per impostare correttamente lo sfondo](https://github.com/Almamu/linux-wallpaperengine)
 
 ## Struttura del repo
 ![Screen](assets/tree.jpeg)
