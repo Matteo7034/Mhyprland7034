@@ -26,7 +26,7 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal = "foot"
+local terminal = "foot -c ~/.config/hypr/foot/foot.ini"
 local fileManager = "thunar"
 local menu = "wofi --show drun"
 -- local waybar      = "waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.cssy"
