@@ -1,4 +1,9 @@
 #!/bin/bash
-hyprshade on vibrance
-grim -g "$(slurp)" -t png - | wl-copy --type image/png
-hyprshade on blue-light-filter
+DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$DIR"
+
+FILE="$DIR/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
+
+grim -g "$(slurp)" -t png - | tee "$FILE" | wl-copy --type image/png
+
+

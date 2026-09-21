@@ -15,10 +15,17 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-	output = "",
+	output = "DP-1",
 	mode = "2560x1440@180",
 	position = "0x0",
 	scale = "1",
+})
+
+hl.monitor({
+    output = "DP-2",
+    mode = "1360x768@59.66",
+    position = "2560x0",
+    scale = "1",
 })
 
 ---------------------
@@ -26,7 +33,9 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal = "foot -c ~/.config/hypr/foot/foot.ini"
+-- local terminal = "foot -c ~/.config/hypr/foot/foot.ini"
+
+local terminal = "alacritty"
 local fileManager = "thunar"
 local menu = "wofi --show drun"
 -- local waybar      = "waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.cssy"
@@ -45,18 +54,21 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("dbus-update-activation-environment --all")
 
 	hl.exec_cmd("killall -e xdg-desktop-portal-hyprland xdg-desktop-portal")
-
 	hl.exec_cmd("sleep 1")
-	hl.exec_cmd("/usr/libexec/xdg-desktop-portal-hyprland &")
+
+    hl.exec_cmd("/usr/libexec/xdg-desktop-portal-hyprland &")
 	hl.exec_cmd("sleep 1 && /usr/libexec/xdg-desktop-portal &")
 	hl.exec_cmd("sleep 1")
 
 	-- pipewire
-	hl.exec_cmd("pipewire & wireplumber & pipewire-pulse")
-	-- walpaper
+	hl.exec_cmd("pipewire &")
+	hl.exec_cmd("pipewire-pulse &")
+	hl.exec_cmd("wireplumber &")
+
+    -- walpaper
 	hl.exec_cmd("hyprpaper -c ~/.config/hypr/hyprpaper.conf")
 
-	hl.exec_cmd("sleep 1")
+	--hl.exec_cmd("sleep 1")
 	--hl.exec_cmd("~/linux-wallpaperengine/build/output/linux-wallpaperengine --scaling fill --screen-root DP-2 --bg 3534752978  ")
 
 	-- waybar
@@ -235,7 +247,7 @@ hl.config({
 
 hl.config({
 	input = {
-		kb_layout = "us",
+		kb_layout = "it",
 		kb_variant = "",
 		kb_model = "",
 		kb_options = "",
@@ -283,8 +295,8 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + Home", hl.dsp.exec_cmd("~/.config/hypr/scripts/shot"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.config/hypr/scripts/shot"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox-bin"))
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
@@ -295,6 +307,7 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/hypr/scripts/wayba
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
+
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
