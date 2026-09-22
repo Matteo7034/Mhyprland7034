@@ -67,6 +67,7 @@ hl.on("hyprland.start", function()
 
     -- walpaper
 	hl.exec_cmd("hyprpaper -c ~/.config/hypr/hyprpaper.conf")
+	hl.exec_cmd("hyprsunset --temperature 4000 &")
 
 	--hl.exec_cmd("sleep 1")
 	--hl.exec_cmd("~/linux-wallpaperengine/build/output/linux-wallpaperengine --scaling fill --screen-root DP-2 --bg 3534752978  ")
